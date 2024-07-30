@@ -1,63 +1,80 @@
-/*
 package com.example.kotlin_portfolio.components.dialog
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.foundation.layout.Box
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
-import java.lang.reflect.Modifier
+import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material3.TextButton
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.TextStyle
 
 @Composable
 fun DialogWithImage(
+    modifier: Modifier = Modifier,
+    Title: String,
+    Message: String,
     onDismissRequest: () -> Unit,
-    onConfirmation: () -> Unit,
-    imageDescription: String,
+    onConfirmation: (() -> Unit)? = null,
+    icon: ImageVector,
 ) {
-    Dialog(onDismissRequest = { onDismissRequest() }) {
-        // Draw a rectangle shape with rounded corners inside the dialog
-        Card(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(375.dp)
-                .padding(16.dp),
-            shape = RoundedCornerShape(16.dp),
-        ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Text(
-                    text = "This is a dialog with buttons and an image.",
-                    modifier = Modifier.padding(16.dp),
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
+        AlertDialog(
+            onDismissRequest = { onDismissRequest() },
+            icon = {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = "Info Icon",
+                    modifier = Modifier.size(44.dp)
                 )
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
+            },
+            title = { Text(text = Title) },
+            text = {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center,
+                    modifier = Modifier.fillMaxWidth()
                 ) {
-                    TextButton(
-                        onClick = { onDismissRequest() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
-                        Text(text = "Dismiss")
+                    Text(
+                        text = Message,
+                        style = TextStyle(fontSize = 18.sp),
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        onDismissRequest()
                     }
-                    TextButton(
-                        onClick = { onConfirmation() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
+                ) {
+                    Text("Dismiss")
+                }
+            },
+            confirmButton = {
+                onConfirmation?.let { onConfirm ->
+                    Button(onClick = { onConfirm() }) {
                         Text("Confirm")
                     }
                 }
             }
-        }
+        )
     }
-}*/
+}
