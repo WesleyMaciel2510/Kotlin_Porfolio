@@ -17,9 +17,9 @@ val DarkColorScheme = darkColorScheme(
 )
 
 val LightColorScheme = lightColorScheme(
-    primary = Blue40,
-    secondary = Green40,
-    tertiary = NightBlack,
+    primary = AirbnbRed,
+    secondary = NightBlack,
+    tertiary = Blue40,
     outline = BgBorder,
     background = White,
 )

@@ -12,7 +12,8 @@ val Blue50 = Color(0XFF4596A8)
 val Green40 = Color(0xFF20963f)
 val White = Color(0xFFFFFFFF)
 
-val NightBlack = Color(0xFF141414)
+val AirbnbRed = Color(0XFFD33753)
+val NightBlack = Color(0xFF222222)
 val BgBorder = Color(0xFF235789)
-val Purple40 = Color(0xFF444DB3)
+
 

@@ -67,7 +67,6 @@ dependencies {
     implementation ("androidx.compose.foundation:foundation:1.4.0")
     implementation ("androidx.compose.ui:ui:1.4.0")
     implementation("androidx.compose.material:material:1.6.8")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     //end system inserts
     implementation ("com.airbnb.android:lottie-compose:5.0.3")
     implementation("androidx.media3:media3-common:1.4.0")
@@ -80,6 +79,8 @@ dependencies {
     implementation ("androidx.compose.material:material-icons-extended:1.3.1")
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.compose.material)
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
+    implementation("com.google.code.gson:gson:2.10.1")
     // new libs end block ==============
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

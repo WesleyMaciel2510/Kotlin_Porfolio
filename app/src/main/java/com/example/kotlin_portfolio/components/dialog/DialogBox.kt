@@ -25,8 +25,8 @@ import androidx.compose.ui.text.TextStyle
 @Composable
 fun DialogWithImage(
     modifier: Modifier = Modifier,
-    Title: String,
-    Message: String,
+    title: String,
+    message: String,
     onDismissRequest: () -> Unit,
     onConfirmation: (() -> Unit)? = null,
     icon: ImageVector,
@@ -44,7 +44,7 @@ fun DialogWithImage(
                     modifier = Modifier.size(44.dp)
                 )
             },
-            title = { Text(text = Title) },
+            title = { Text(text = title) },
             text = {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -52,7 +52,7 @@ fun DialogWithImage(
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     Text(
-                        text = Message,
+                        text = message,
                         style = TextStyle(fontSize = 18.sp),
                         modifier = Modifier.padding(bottom = 8.dp)
                     )

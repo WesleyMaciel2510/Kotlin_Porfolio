@@ -73,7 +73,7 @@ fun LoginScreen(
                 label = {
                     Text(
                         text = "Username",
-                        color = Color.Black
+                        color = LightColorScheme.outline
                     )
                         },
                 modifier = Modifier
@@ -86,7 +86,7 @@ fun LoginScreen(
                 onValueChange = { password = it },
                 label = { Text(
                     text = "Password",
-                    color = Color.Black)},
+                    color = LightColorScheme.outline)},
                 visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
                     val image = if (passwordVisibility)
@@ -94,7 +94,11 @@ fun LoginScreen(
                     else Icons.Filled.VisibilityOff
 
                     IconButton(onClick = { passwordVisibility = !passwordVisibility }) {
-                        Icon(imageVector = image, "")
+                        Icon(
+                            imageVector = image,
+                            contentDescription = null,
+                            tint = LightColorScheme.outline
+                        )
                     }
                 },
                 modifier = Modifier
@@ -110,7 +114,10 @@ fun LoginScreen(
                             loginLogic.handleLogin(userName, password) { result ->
                                 loading = false
                                 if (result) {
-                                    navController.navigate("home")
+                                    navController.navigate("home") {
+                                        // Clear the back stack to prevent returning to the login screen
+                                        popUpTo("login") { inclusive = true }
+                                    }
                                 } else {
                                     showDialog = true
                                 }
@@ -121,12 +128,11 @@ fun LoginScreen(
                     },
                     colors = ButtonDefaults.buttonColors(
                         containerColor = Color(0xFF4CAF50),
-                        contentColor = Color.White
                     ),
                     modifier = Modifier
                         .width(200.dp)
                 ) {
-                    Text(text = "Login")
+                    Text(text = "Login", color = Color(0XFFFFFFFF))
                 }
             } else {
                 Box(
@@ -145,8 +151,8 @@ fun LoginScreen(
 
         if (showDialog) {
             DialogWithImage(
-                Title = "Login Error",
-                Message = "Check your credentials and try again.",
+                title = "Login Error",
+                message = "Check your credentials and try again.",
                 onDismissRequest = { showDialog = false },
                 icon = Icons.Default.Info,
                 modifier = Modifier
