@@ -1,9 +1,6 @@
 package com.example.kotlin_portfolio.screens.login
 
-import android.util.Log
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,12 +28,10 @@ import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
-import androidx.compose.runtime.*
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.Alignment
 import androidx.compose.material3.*
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.kotlin_portfolio.R
@@ -60,7 +55,7 @@ fun LoginScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             modifier = Modifier
-                .background(color = LightColorScheme.tertiary)
+                .background(color = LightColorScheme.background)
                 .fillMaxSize()
                 .padding(20.dp),
             verticalArrangement = Arrangement.Center,
@@ -68,14 +63,19 @@ fun LoginScreen(
         ) {
             Text(
                 text = "Login",
-                fontSize = 24.sp,
-                color = MaterialTheme.colorScheme.primary,
+                fontSize = 27.sp,
+                color = LightColorScheme.outline,
                 modifier = Modifier.padding(bottom = 20.dp)
             )
             OutlinedTextField(
                 value = userName,
                 onValueChange = { userName = it },
-                label = { Text("Username") },
+                label = {
+                    Text(
+                        text = "Username",
+                        color = Color.Black
+                    )
+                        },
                 modifier = Modifier
                     .width(300.dp)
                     .padding(bottom = 20.dp)
@@ -84,7 +84,9 @@ fun LoginScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("Password") },
+                label = { Text(
+                    text = "Password",
+                    color = Color.Black)},
                 visualTransformation = if (passwordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
                 trailingIcon = {
                     val image = if (passwordVisibility)

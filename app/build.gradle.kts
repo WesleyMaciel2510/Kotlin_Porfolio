@@ -67,6 +67,7 @@ dependencies {
     implementation ("androidx.compose.foundation:foundation:1.4.0")
     implementation ("androidx.compose.ui:ui:1.4.0")
     implementation("androidx.compose.material:material:1.6.8")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     //end system inserts
     implementation ("com.airbnb.android:lottie-compose:5.0.3")
     implementation("androidx.media3:media3-common:1.4.0")
