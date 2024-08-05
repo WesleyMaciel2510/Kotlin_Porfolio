@@ -81,6 +81,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     implementation("com.google.code.gson:gson:2.10.1")
+    implementation("io.coil-kt:coil-compose-base:2.7.0")
     // new libs end block ==============
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

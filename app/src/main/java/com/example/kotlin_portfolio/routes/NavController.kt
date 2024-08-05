@@ -27,7 +27,7 @@ fun AppNavigation(
     ) {
         //if (isAuthenticated) {
             composable("home") {
-                HomeScreen(navController = navController, context = context)
+                HomeScreen(navController = navController/*, context = context*/)
             }
             composable("profile") {
                 ProfileScreen(navController = navController)

@@ -43,7 +43,7 @@ fun HeaderBar(
         modifier = modifier
             .fillMaxWidth()
             .background(color = LightColorScheme.outline)
-            .padding(horizontal = 7.dp, vertical = 20.dp)
+            .padding(horizontal = 7.dp, vertical = 10.dp)
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,

@@ -15,7 +15,7 @@ fun AuthNavigation(navController: NavHostController, modifier: Modifier = Modifi
 
     NavHost(navController = navController, startDestination = "home", modifier = modifier) {
         composable("home") {
-            HomeScreen(navController = navController, context = context)
+            HomeScreen(navController = navController/*, context = context*/)
         }
         composable("profile") {
             ProfileScreen(navController = navController)
